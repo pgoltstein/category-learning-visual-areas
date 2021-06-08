@@ -66,8 +66,8 @@ Figure 1
 *	1e: ``` python performance_per_categorylevel.py ```
 
 Extended Data Figure 1
-*	1c: ``` python performance_per_categorylevel.py ```
-*	1e,f: ``` python boundary_stability.py ```
+*	ED1c: ``` python performance_per_categorylevel.py ```
+*	ED1e,f: ``` python boundary_stability.py ```
 
 ---
 
@@ -80,8 +80,8 @@ Figure 2
 *	2b: ``` python performance_per_categorylevel.py ```
 
 Extended Data Figure 2
-*	2c: ``` python headfix_learningcurve.py ```
-*	2d,e: ``` python performance_per_categorylevel.py ```
+*	ED2c: ``` python headfix_learningcurve.py ```
+*	ED2d,e: ``` python performance_per_categorylevel.py ```
 
 ---
 
@@ -94,7 +94,7 @@ Figure 2
 *	2c-g: ``` python retinotopy-analysis-performance.py ```
 
 Extended Data Figure 2
-*	2h-i: ``` python retinotopy-analysis-eyetracking.py ```
+*	ED2h-i: ``` python retinotopy-analysis-eyetracking.py ```
 
 ---
 
@@ -108,8 +108,8 @@ Figure 3
 * 3e: ``` python performance_per_categorylevel.py baseline ```
 
 Extended Data Figure 4
-* 4a: ``` python chronicimagingbehavior_learningcurve.py ```
-* 4b: ``` python performance_per_categorylevel.py category ```
+* ED4a: ``` python chronicimagingbehavior_learningcurve.py ```
+* ED4b: ``` python performance_per_categorylevel.py category ```
 
 ---
 
@@ -122,7 +122,7 @@ Figure 3
 * 3f: ``` python corticalinactivation.py ```
 
 Extended Data Figure 3
-* 4c,d: ``` python corticalinactivation.py ```
+* ED4c,d: ``` python corticalinactivation.py ```
 
 ---
 
@@ -132,4 +132,23 @@ Extended Data Figure 3
 * Code path: “./code/p3c_visualareainactivation”
 
 Extended Data Figure 5
-* 5d: ``` python visualareainactivation-analysis.py ```
+* ED5d: ``` python visualareainactivation-analysis.py ```
+
+---
+
+### Part 4: Fraction responsive neurons
+
+* Data path: “./data/chronicrecordings”
+* Processed data path: “./data/p4_fractionresponsiveneurons”
+* Code path: “./code/p4_fractionresponsiveneurons”
+
+Data pre-processing: Calculate subsampled fraction of responsive neurons for each visual area.
+* ``` python frac-n-resp-cat-subsampl.py [areaname] ```
+
+Figure 3
+* 4a-f: ``` python fractionresponsiveneurons-clustering.py ```
+* 4g-i: ``` python fractionresponsiveneurons-linearmodel.py ```
+
+Extended Data Figure 6
+* ED6a: ``` python fractionresponsiveneurons-clustering.py ```
+* ED6b: ``` python fractionresponsiveneurons-linearmodel.py ```
