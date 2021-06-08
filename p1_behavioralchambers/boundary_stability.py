@@ -10,9 +10,6 @@ Created on Wed Jul 12 15:35:35 2017
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Get imports
 import numpy as np
-import scipy.linalg
-import scipy.stats as scistats
-from statsmodels.stats.multicomp import pairwise_tukeyhsd
 import sys
 sys.path.append('../xx_analysissupport')
 
