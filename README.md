@@ -123,3 +123,13 @@ Figure 3
 
 Extended Data Figure 3
 * 4c,d: ``` python corticalinactivation.py ```
+
+---
+
+### Part 3c: Visual area inactivation
+
+* Data path: “./data/p3c_visualareainactivation”
+* Code path: “./code/p3c_visualareainactivation”
+
+Extended Data Figure 5
+* 5d: ``` python visualareainactivation-analysis.py ```
