@@ -43,9 +43,9 @@ Your directory structure should look like this:
 
 2. Activate the environment
 
-``` conda activate catvisareas ```
+```conda activate catvisareas ```
 
-3. All code should be run from the respective "code path", that is, cd into the code directory and run it using python. For example:
+3. All code should be run from the respective "code path", that is, cd into the code directory and run it using python. This is for the reason that it (by defaut) will look for the data in a reletive path starting from the folder where the python code is stored. So, for example, to make a learning curve as in figure 1b:
 ```
 cd code
 cd p1_behavioralchambers
@@ -60,14 +60,14 @@ python behavior_chamber_learningcurve.py
 * Code path: “./code/p1_behavioralchambers”
 
 Figure 1
-* 1b: behavior_chamber_learningcurve.py
-*	1c: performance_per_categorylevel.py
-*	1d: performance_on_first_trials.py
-*	1e: performance_per_categorylevel.py
+* 1b: ``` python behavior_chamber_learningcurve.py ```
+*	1c: ``` python performance_per_categorylevel.py ```
+*	1d: ``` python performance_on_first_trials.py ```
+*	1e: ``` python performance_per_categorylevel.py ```
 
 Extended Data Figure 1
-*	1c: performance_per_categorylevel.py
-*	1e,f: boundary_stability.py
+*	1c: ``` python performance_per_categorylevel.py ```
+*	1e,f: ``` python boundary_stability.py ```
 
 ---
 
@@ -79,11 +79,11 @@ Extended Data Figure 1
 * Code path: “./code/p2a_headfixbehavior”
 
 Figure 2
-*	2b: performance_per_categorylevel.py
+*	2b: ``` python performance_per_categorylevel.py ```
 
 Extended Data Figure 2
-*	2c: headfix_learningcurve.py
-*	2d,e: performance_per_categorylevel.py
+*	2c: ``` python headfix_learningcurve.py ```
+*	2d,e: ``` python performance_per_categorylevel.py ```
 
 #### Part 2b: Retinotopic shift of stimulus
 
@@ -91,7 +91,24 @@ Extended Data Figure 2
 * Code path: “./code/p2b_retinotopybehavior”
 
 Figure 2
-*	2c-g: retinotopy-analysis-performance.py
+*	2c-g: ``` python retinotopy-analysis-performance.py ```
 
 Extended Data Figure 2
-*	2h-i: retinotopy-analysis-eyetracking.py
+*	2h-i: ``` python retinotopy-analysis-eyetracking.py ```
+
+---
+
+### Part 3
+
+#### Part 3a: Chronic imaging behavior
+
+* Data path: “./data/p3a_chronicimagingbehavior”
+* Code path: “./code/p3a_chronicimagingbehavior”
+
+Figure 3
+* 3d,e: ``` python performance_per_categorylevel.py category ```
+* 3e: ``` python performance_per_categorylevel.py baseline ```
+
+Extended Data Figure 4
+* 4a: ``` python chronicimagingbehavior_learningcurve.py ```
+* 4b: ``` python performance_per_categorylevel.py category ```
