@@ -129,7 +129,7 @@ CAplot.finish_panel( ax, ylabel="Boundary deviation ($^\circ$)", legend="off", y
 CAplot.plt.xticks(rotation=45)
 
 # Finish figure layout and save
-CAplot.finish_figure( filename="ED1e-BehavioralChambers-BoundaryDeviation", wspace=0.8, hspace=0.8 )
+CAplot.finish_figure( filename="1ED1e-BehavioralChambers-BoundaryDeviation", wspace=0.8, hspace=0.8 )
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,7 +148,7 @@ CAplot.line( xvalues, mn, sem, line_color='#aaaaaa', sem_color='#aaaaaa', label=
 CAplot.finish_panel( ax, ylabel=r"$\Delta$Boundary angle ($^\circ$)", xlabel="Session spacing", legend="off", y_minmax=[0.0,15.000001], y_step=[3,0], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,max_spacing+1], x_step=[5.0,0], x_margin=0.55, x_axis_margin=0.55, despine=True)
 
 # Finish figure layout and save
-CAplot.finish_figure( filename="ED1f-BehavioralChambers-BoundaryDrift", wspace=0.8, hspace=0.8 )
+CAplot.finish_figure( filename="1ED1f-BehavioralChambers-BoundaryDrift", wspace=0.8, hspace=0.8 )
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Stats
