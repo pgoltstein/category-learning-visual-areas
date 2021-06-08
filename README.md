@@ -71,9 +71,7 @@ Extended Data Figure 1
 
 ---
 
-### Part 2
-
-#### Part 2a: Headfixed behavior
+### Part 2a: Headfixed behavior
 
 * Data path: “./data/p2a_headfixbehavior”
 * Code path: “./code/p2a_headfixbehavior”
@@ -85,7 +83,9 @@ Extended Data Figure 2
 *	2c: ``` python headfix_learningcurve.py ```
 *	2d,e: ``` python performance_per_categorylevel.py ```
 
-#### Part 2b: Retinotopic shift of stimulus
+---
+
+### Part 2b: Retinotopic shift of stimulus
 
 * Data path: “./data/p2b_retinotopybehavior”
 * Code path: “./code/p2b_retinotopybehavior”
@@ -98,9 +98,7 @@ Extended Data Figure 2
 
 ---
 
-### Part 3
-
-#### Part 3a: Chronic imaging behavior
+### Part 3a: Chronic imaging behavior
 
 * Data path: “./data/p3a_chronicimagingbehavior”
 * Code path: “./code/p3a_chronicimagingbehavior”
@@ -112,3 +110,16 @@ Figure 3
 Extended Data Figure 4
 * 4a: ``` python chronicimagingbehavior_learningcurve.py ```
 * 4b: ``` python performance_per_categorylevel.py category ```
+
+---
+
+### Part 3b: Cortical inactivation
+
+* Data path: “./data/p3b_corticalinactivation”
+* Code path: “./code/p3b_corticalinactivation”
+
+Figure 3
+* 3f: ``` python corticalinactivation.py ```
+
+Extended Data Figure 3
+* 4c,d: ``` python corticalinactivation.py ```
