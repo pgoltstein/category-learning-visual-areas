@@ -219,4 +219,18 @@ Extended Data Figure 10
 * ED10a,b: ``` python encmodel-psth.py ```
 * ED10c-e: ``` python encmodel-tuningproperties.py ```
 
-Note: The script encmodel-cti-semantic-feature.py plots many individual data points and links them using lines, which runs generally very slow. In the script is an option for not showing the individual datapoints, the variable is called "suppress_connecting_individual_datapoints_for_speed" (on line 34), set this to "True" and the script will run much faster, but not plot some of those individual datapoints.
+Note: The script encmodel-cti-semantic-feature.py plots many individual data points and links them using individual lines, which causes the script to run very slow. In the script is an option for not showing the individual lines connecting the individual datapoints. The variable is called "suppress_connecting_individual_datapoints_for_speed" (on line 34), set this to "True" and the script will run much faster.
+
+---
+
+### Part 6b: Mouth movement tracking
+
+Data path: “./data/p6b_mouthtracking”  
+Code path: “./code/p6b_mouthtracking”
+
+Extended Data Figure 10
+* ED10g,h,j,k: ``` python tracking-of-mouth-movement.py ```
+
+---
+
+_That's all folks_
