@@ -1,6 +1,6 @@
 # Category learning & visual areas: Data, analysis and figures
 
-This repository contains code needed to reproduce figure panels as in the manuscript "Mouse visual cortex areas represent perceptual and semantic features of learned visual categories" by Pieter M. Goltstein, Sandra Reinert, Tobias Bonhoeffer and Mark Hübener (Max Planck Institute of Neurobiology).  
+This repository contains code needed to reproduce figure panels and analyses as in the manuscript "Mouse visual cortex areas represent perceptual and semantic features of learned visual categories" by Pieter M. Goltstein, Sandra Reinert, Tobias Bonhoeffer and Mark Hübener (Max Planck Institute of Neurobiology).  
 A detailed instruction can be found below. In case of any questions, please do not hesitate to contact us.
 
 ---
