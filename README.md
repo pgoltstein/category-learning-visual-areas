@@ -1,6 +1,7 @@
 # Category learning & visual areas: Data, analysis and figures
 
-This repository contains code needed to reproduce figure panels as in the manuscript "Mouse visual cortex areas represent perceptual and semantic features of learned visual categories" by Pieter M. Goltstein, Sandra Reinert, Tobias Bonhoeffer and Mark Hübener (Max Planck Institute of Neurobiology). A detailed instruction can be found below. In case of any questions, please do not hesitate to contact us.
+This repository contains code needed to reproduce figure panels as in the manuscript "Mouse visual cortex areas represent perceptual and semantic features of learned visual categories" by Pieter M. Goltstein, Sandra Reinert, Tobias Bonhoeffer and Mark Hübener (Max Planck Institute of Neurobiology).  
+A detailed instruction can be found below. In case of any questions, please do not hesitate to contact us.
 
 ---
 
@@ -8,41 +9,46 @@ This repository contains code needed to reproduce figure panels as in the manusc
 
 #### Part 0a: Install programs/tools
 
-1. Download and install Python 3.7.10 (Anaconda distribution). Follow instructions on https://anaconda.org
-2. Download and install “Git” (this is optional, the code can also be downloaded manually). Follow instructions on https://git-scm.com
-3. Download and install the “GIN command line client” (this is optional, the data can also be downloaded manually). Follow instructions on https://gin.g-node.org
+1. Download and install Python 3.7.10 (Anaconda distribution).  
+_Follow instructions on https://anaconda.org_
+2. Download and install “Git” (this is optional, the code can also be downloaded manually).  
+_Follow instructions on https://git-scm.com_
+3. Download and install the “GIN command line client” (this is optional, the data can also be downloaded manually).  
+_Follow instructions on https://gin.g-node.org_
 
 #### Part 0b: Download the data and code
 
 1. Open up any type of command line window and change the current directory to a drive/folder in which you like to have the entire project
-2. Download data
-
+2. Download data  
 ``` gin get pgoltstein/category-learning-visual-areas ```
 
 3. CD into the repo-folder (called “category-learning-visual-areas”)
-4. Download the code (this will be placed in a newly created subfolder “code”)
-
+4. Download the code (this will be placed in a newly created subfolder “code”)  
 ``` git clone https://github.com/pgoltstein/category-learning-visual-areas.git code ```
 
 Your directory structure should look like this:
-
 ```
-- Base directory (e.g. category-learning-visual-areas)
+- category-learning-visual-areas (or any other name you chose for your base directory)
   - code
-    - ... (code repository contents)
+    - p1_behavioralchambers
+      - behavior_chamber_learningcurve.py
+      - ... etc
+    - p2a_headfixbehavior
+    - ... etc
   - data
-    - ... (data repository contents)
+    - chronicrecordings
+    - p1_behavioralchambers
+    - ...
   - figureout
+  - ... etc
 ```
 
 #### Part 0c: Create analysis environment
 
-1. Create the python environment from the yaml file in the code folder
-
+1. Create the python environment from the yaml file in the code folder  
 ``` conda env create -f ./code/environment.yaml --name catvisareas ```
 
-2. Activate the environment
-
+2. Activate the environment  
 ```conda activate catvisareas ```
 
 3. All code should be run from the respective "code path", that is, cd into the code directory and run it using python. This is for the reason that it (by defaut) will look for the data in a reletive path starting from the folder where the python code is stored. So, for example, to make a learning curve as in figure 1b:
@@ -56,8 +62,8 @@ python behavior_chamber_learningcurve.py
 
 ### Part 1: Behavioral chambers
 
-* Data path: “./data/p1_behavioralchambers”
-* Code path: “./code/p1_behavioralchambers”
+Data path: “./data/p1_behavioralchambers”  
+Code path: “./code/p1_behavioralchambers”
 
 Figure 1
 * 1b: ``` python behavior_chamber_learningcurve.py ```
@@ -73,8 +79,8 @@ Extended Data Figure 1
 
 ### Part 2a: Headfixed behavior
 
-* Data path: “./data/p2a_headfixbehavior”
-* Code path: “./code/p2a_headfixbehavior”
+Data path: “./data/p2a_headfixbehavior”  
+Code path: “./code/p2a_headfixbehavior”
 
 Figure 2
 *	2b: ``` python performance_per_categorylevel.py ```
@@ -87,8 +93,8 @@ Extended Data Figure 2
 
 ### Part 2b: Retinotopic shift of stimulus
 
-* Data path: “./data/p2b_retinotopybehavior”
-* Code path: “./code/p2b_retinotopybehavior”
+Data path: “./data/p2b_retinotopybehavior”  
+Code path: “./code/p2b_retinotopybehavior”
 
 Figure 2
 *	2c-g: ``` python retinotopy-analysis-performance.py ```
@@ -100,8 +106,8 @@ Extended Data Figure 2
 
 ### Part 3a: Chronic imaging behavior
 
-* Data path: “./data/p3a_chronicimagingbehavior”
-* Code path: “./code/p3a_chronicimagingbehavior”
+Data path: “./data/p3a_chronicimagingbehavior”  
+Code path: “./code/p3a_chronicimagingbehavior”
 
 Figure 3
 * 3d,e: ``` python performance_per_categorylevel.py category ```
@@ -115,8 +121,8 @@ Extended Data Figure 4
 
 ### Part 3b: Cortical inactivation
 
-* Data path: “./data/p3b_corticalinactivation”
-* Code path: “./code/p3b_corticalinactivation”
+Data path: “./data/p3b_corticalinactivation”  
+Code path: “./code/p3b_corticalinactivation”
 
 Figure 3
 * 3f: ``` python corticalinactivation.py ```
@@ -128,8 +134,8 @@ Extended Data Figure 3
 
 ### Part 3c: Visual area inactivation
 
-* Data path: “./data/p3c_visualareainactivation”
-* Code path: “./code/p3c_visualareainactivation”
+Data path: “./data/p3c_visualareainactivation”  
+Code path: “./code/p3c_visualareainactivation”
 
 Extended Data Figure 5
 * ED5d: ``` python visualareainactivation-analysis.py ```
@@ -138,12 +144,13 @@ Extended Data Figure 5
 
 ### Part 4: Fraction responsive neurons
 
-* Data path: “./data/chronicrecordings”
-* Processed data path: “./data/p4_fractionresponsiveneurons”
-* Code path: “./code/p4_fractionresponsiveneurons”
+Data path: “./data/chronicrecordings”  
+Processed data path: “./data/p4_fractionresponsiveneurons”  
+Code path: “./code/p4_fractionresponsiveneurons”
 
-Data pre-processing: Calculate subsampled fraction of responsive neurons for each visual area.
-* ``` python frac-n-resp-cat-subsampl.py [areaname] ```
+Data pre-processing:
+* ``` python frac-n-resp-cat-subsampl.py [areaname] ```  
+Calculates subsampled fraction of responsive neurons for each visual area.
 
 Figure 3
 * 4a-f: ``` python fractionresponsiveneurons-clustering.py ```
@@ -152,3 +159,38 @@ Figure 3
 Extended Data Figure 6
 * ED6a: ``` python fractionresponsiveneurons-clustering.py ```
 * ED6b: ``` python fractionresponsiveneurons-linearmodel.py ```
+
+---
+
+### Part 5: Encodingmodel analysis
+
+Data path: “./data/chronicrecordings”  
+Processed data path: “./data/p5_ encodingmodel”  
+Code path: “./code/p5_ encodingmodel”  
+
+Data pre-processing:
+* ``` python run-encodingmodel-within.py [areaname] [mousename] comb -o R2m -r trials -l Category -c Trained ```  
+Fits the full encoding model to the activity trace of each neuron in a singe chronic recording (identified by area and mouse).
+
+* ``` python run-encodingmodel-within.py [areaname] [mousename] comb -o R2m -r trials -l Category -c Trained -s trials ```  
+Fits the full encoding model to the shuffled activity trace of each neuron in a singe chronic recording (identified by area and mouse).
+
+* ``` python run-encodingmodel-delta.py [areaname] [mousename] comb -o R2m -l Category -c Trained -g [group selector] ```  
+Fits a full encoding model with one regressor group shuffled to the activity trace of each neuron in a singe chronic recording (identified by area and mouse).
+
+* ``` python run-encodingmodel-delta.py [areaname] [mousename] comb -o R2m -l Category -c Trained -a [group selector] ```  
+Fits a full encoding model with all but one regressor group shuffled to the activity trace of each neuron in a singe chronic recording (identified by area and mouse).
+
+* ``` python run-encodingmodel-regularization.py [areaname] [mousename] ```  
+Repeatedly fits a full encoding model to the activity trace of each neuron in a singe chronic recording (identified by area and mouse) using different L1 values.
+
+Figure 5
+* 5f: ``` python encodingmodel-full-area-dorsal-ventral.py ```
+* 5g: ``` python encodingmodel-delta-component-area.py ```
+
+Extended Data Figure 7
+* ED7a: ``` python encodingmodel-full-regularization.py ```
+* ED7b,c: ``` python encodingmodel-full-R2-fraction.py ```
+* ED7d: ``` python encodingmodel-full-vs-responsivefraction.py ```
+* ED7e,f: ``` python encodingmodel-full-area-dorsal-ventral.py ```
+* ED7g: ``` python encodingmodel-delta-component-area.py ```
