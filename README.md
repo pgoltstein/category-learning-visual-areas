@@ -194,3 +194,29 @@ Extended Data Figure 7
 * ED7d: ``` python encodingmodel-full-vs-responsivefraction.py ```
 * ED7e,f: ``` python encodingmodel-full-area-dorsal-ventral.py ```
 * ED7g: ``` python encodingmodel-delta-component-area.py ```
+
+---
+
+### Part 6a: Encodingmodel category tuning
+
+Data path: “./data/chronicrecordings”  
+Processed data path: “./data/p5_ encodingmodel”  
+Code path: “./code/p6a_ encmodelcategorytuning”  
+
+Data pre-processing: see part 5
+
+Figure 6
+* 6b-f: ``` python encmodel-cti-semantic-feature.py ```
+* 6h,i: ``` python encmodel-deltacti-vs-choice.py ```
+
+Extended Data Figure 8
+* ED8b,c: ``` python encmodel-kernelframes.py ```
+
+Extended Data Figure 9
+* ED9a-c: ``` python encmodel-cti-semantic-feature.py ```
+
+Extended Data Figure 10
+* ED10a,b: ``` python encmodel-psth.py ```
+* ED10c-e: ``` python encmodel-tuningproperties.py ```
+
+Note: The script encmodel-cti-semantic-feature.py plots many individual data points and links them using lines, which runs generally very slow. In the script is an option for not showing the individual datapoints, the variable is called "suppress_connecting_individual_datapoints_for_speed" (on line 34), set this to "True" and the script will run much faster, but not plot some of those individual datapoints.
