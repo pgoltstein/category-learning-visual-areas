@@ -289,6 +289,7 @@ for r_nr in range(n_regr):
     print("    - Mean weight dorsal = {} ({}) n={}".format(*CAgeneral.mean_sem(x)))
     print("    - Mean weight ventral = {} ({}) n={}".format(*CAgeneral.mean_sem(y)))
     print("    - Mann-whitney U={}, p={} ".format(U,p))
+    print("    - Mann-whitney U={}, p_bonf(4x)={} ".format(U,p*4))
 
     X = np.zeros((x.shape[0],2))
     Y = np.zeros((y.shape[0],2))+1
