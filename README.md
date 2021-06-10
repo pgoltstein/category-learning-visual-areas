@@ -17,13 +17,15 @@ _Follow instructions on https://anaconda.org_
 _Follow instructions on https://git-scm.com_
 
 3. Download and install the “GIN command line client” (this is optional, the data can also be downloaded manually).  
-_Follow instructions on https://gin.g-node.org_
+_Follow instructions on https://gin.g-node.org (under the 'Help' tab)_
 
 #### Part 0b: Download the data
 
 1. Open up any type of command line window and change the current directory to a drive/folder in which you like to have the entire project
+
 2. Log in on the gin server  
 ``` gin login ```  
+
 3. Download the 'small file' dataset  
 ``` gin get pgoltstein/category-learning-visual-areas ```  
 
@@ -33,7 +35,7 @@ cd category-learning-visual-areas
 gin get-content
 ```
 
-Or, if you prefer, you can download the data manually from the gin.g-node  
+Or, if you prefer, you can instead download the data manually from the gin.g-node  
 https://gin.g-node.org/pgoltstein/category-learning-visual-areas  
 
 #### Part 0c: Download the code
