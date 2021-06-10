@@ -21,7 +21,7 @@ _Follow instructions on https://gin.g-node.org (under the 'Help' tab)_
 
 #### Part 0b: Download the data
 
-1. Open up any type of command line window and change the current directory to a drive/folder in which you like to have the entire project
+1. Open up any type of command line window and change the current directory to a drive/folder in which you like to have the entire project. The dataset is approximately 98 GB, so make sure you have enough free disk space.
 
 2. Log in on the gin server  
 ``` gin login ```  
@@ -33,7 +33,8 @@ _Follow instructions on https://gin.g-node.org (under the 'Help' tab)_
 ```
 cd category-learning-visual-areas
 gin get-content
-```
+```  
+Note that this can take a long time as it downloads about 98 GB of data.
 
 Or, if you prefer, you can instead download the data manually from the gin.g-node  
 https://gin.g-node.org/pgoltstein/category-learning-visual-areas  
