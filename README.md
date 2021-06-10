@@ -21,7 +21,7 @@ _Follow instructions on https://gin.g-node.org (under the 'Help' tab)_
 
 #### Part 0b: Download the data
 
-1. Open up any type of command line window and change the current directory to a drive/folder in which you like to have the entire project. The dataset is approximately 98 GB, so make sure you have enough free disk space.
+1. Open up any type of command line shell (csh, bash, zsh, cmd.exe, etc) and change the current directory to a drive/folder in which you like to have the entire project. The dataset is approximately 98 GB, so make sure you have enough free disk space.
 
 2. Log in on the gin server  
 ``` gin login ```  
@@ -41,10 +41,13 @@ https://gin.g-node.org/pgoltstein/category-learning-visual-areas
 
 #### Part 0c: Download the code
 
-1. CD into the repo-folder (called “category-learning-visual-areas”)
+1. CD into the repo-folder (called “category-learning-visual-areas”) if you are not already there ..
 
 2. Download the code (this will be placed in a newly created subfolder “code”)  
 ``` git clone https://github.com/pgoltstein/category-learning-visual-areas.git code ```
+
+3. Add a folder for the figure output  
+``` mkdir figureout ```
 
 #### Part 0d: Check if you have everything
 
@@ -67,8 +70,10 @@ Your directory structure should look like this:
 
 #### Part 0c: Create analysis environment
 
-1. Create the python environment from the yaml file in the code folder  
-``` conda env create -f ./code/environment.yaml --name catvisareas ```
+1. Create the python environment from the (system dependent) yaml file in the code folder  
+``` conda env create -f ./code/environment_windows.yaml --name catvisareas ```   
+or  
+``` conda env create -f ./code/environment_macosx.yaml --name catvisareas ```
 
 2. Activate the environment  
 ```conda activate catvisareas ```
