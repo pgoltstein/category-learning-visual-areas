@@ -1,6 +1,7 @@
 # Category learning & visual areas: Data, analysis and figures
 
-This repository contains code needed to reproduce figure panels and analyses as in the manuscript "Mouse visual cortex areas represent perceptual and semantic features of learned visual categories" by Pieter M. Goltstein, Sandra Reinert, Tobias Bonhoeffer and Mark Hübener (Max Planck Institute of Neurobiology).  
+This repository contains code for analyzing data and producing figure panels as presented in the manuscript "Mouse visual cortex areas represent perceptual and semantic features of learned visual categories" by Pieter M. Goltstein, Sandra Reinert, Tobias Bonhoeffer and Mark Hübener (Max Planck Institute of Neurobiology).  
+
 A detailed instruction can be found below. In case of any questions, please do not hesitate to contact us.
 
 ---
@@ -11,20 +12,38 @@ A detailed instruction can be found below. In case of any questions, please do n
 
 1. Download and install Python 3.7.10 (Anaconda distribution).  
 _Follow instructions on https://anaconda.org_
+
 2. Download and install “Git” (this is optional, the code can also be downloaded manually).  
 _Follow instructions on https://git-scm.com_
+
 3. Download and install the “GIN command line client” (this is optional, the data can also be downloaded manually).  
 _Follow instructions on https://gin.g-node.org_
 
-#### Part 0b: Download the data and code
+#### Part 0b: Download the data
 
 1. Open up any type of command line window and change the current directory to a drive/folder in which you like to have the entire project
-2. Download data  
-``` gin get pgoltstein/category-learning-visual-areas ```
+2. Log in on the gin server  
+``` gin login ```  
+3. Download the 'small file' dataset  
+``` gin get pgoltstein/category-learning-visual-areas ```  
 
-3. CD into the repo-folder (called “category-learning-visual-areas”)
-4. Download the code (this will be placed in a newly created subfolder “code”)  
+4. Download the 'large files' from within the repository folder
+```
+cd category-learning-visual-areas
+gin get-content
+```
+
+Or, if you prefer, you can download the data manually from the gin.g-node  
+https://gin.g-node.org/pgoltstein/category-learning-visual-areas  
+
+#### Part 0c: Download the code
+
+1. CD into the repo-folder (called “category-learning-visual-areas”)
+
+2. Download the code (this will be placed in a newly created subfolder “code”)  
 ``` git clone https://github.com/pgoltstein/category-learning-visual-areas.git code ```
+
+#### Part 0d: Check if you have everything
 
 Your directory structure should look like this:
 ```
