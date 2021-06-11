@@ -1,7 +1,7 @@
 name: catvisareas
 channels:
-  - anaconda
   - conda-forge
+  - anaconda
   - anaconda-fusion
   - defaults
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
   - bzip2=1.0.8=he774522_0
   - ca-certificates=2021.5.30=h5b45459_0
   - cached-property=1.5.2=py_0
-  - certifi=2021.5.30=py37h03978a9_0
+  - certifi=2021.5.30=py37haa95532_0
   - cfitsio=3.470=he774522_6
   - charls=2.2.0=h6c2663c_0
   - cloudpickle=1.6.0=py_0
@@ -69,7 +69,6 @@ dependencies:
   - networkx=2.5=py_0
   - numba=0.53.1=py37hf11a4ad_0
   - numexpr=2.7.3=py37hb80d3ca_1
-  - numpy-base=1.20.2=py37hc2deb75_0
   - olefile=0.46=py37_0
   - opencv=4.5.2=py37h03978a9_0
   - openjpeg=2.3.0=h5ec785f_1
@@ -110,6 +109,7 @@ dependencies:
   - tk=8.6.10=he774522_0
   - toolz=0.11.1=pyhd3eb1b0_0
   - tornado=6.1=py37h2bbff1b_0
+  - tqdm=4.59.0=pyhd3eb1b0_1
   - vc=14.2=h21ff451_1
   - vs2015_runtime=14.27.29016=h5e58377_2
   - wheel=0.36.2=pyhd3eb1b0_0
