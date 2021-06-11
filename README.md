@@ -36,7 +36,7 @@ gin get-content
 ```  
 Note that this can take a long time as it downloads about 98 GB of data.
 
-Or, if you prefer, you can instead download the data manually from the gin.g-node  
+Or, if you prefer, you can instead download the data manually from gin.g-node  
 https://gin.g-node.org/pgoltstein/category-learning-visual-areas  
 
 #### Part 0c: Download the code
