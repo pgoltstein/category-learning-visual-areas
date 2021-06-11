@@ -110,7 +110,7 @@ Data path: “./data/p2a_headfixbehavior”
 Code path: “./code/p2a_headfixbehavior”
 
 Figure 2
-*	2b: ``` python performance_2d_including_fit.py.py ```
+*	2b: ``` python performance_2d_including_fit.py ```
 
 Extended Data Figure 2
 *	ED2c: ``` python headfix_learningcurve.py ```
