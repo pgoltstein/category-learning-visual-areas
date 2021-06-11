@@ -96,7 +96,7 @@ Figure 1
 * 1b: ``` python behavior_chamber_learningcurve.py ```
 *	1c: ``` python performance_per_categorylevel.py ```
 *	1d: ``` python performance_on_first_trials.py ```
-*	1e: ``` python performance_per_categorylevel.py ```
+*	1e: ``` python performance_2d_including_fit.py ```
 
 Extended Data Figure 1
 *	ED1c: ``` python performance_per_categorylevel.py ```
