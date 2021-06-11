@@ -160,6 +160,7 @@ CAplot.finish_figure( filename="3d-ED4b-ChronicImagingBehavior-Performance-2Dplo
 
 fig = CAplot.init_figure(fig_size=(6,3))
 CAplot.plt.imshow(np.full((1,1),0.0), cmap=colormap, vmin=0.0, vmax=1.0)
+CAplot.plt.title("This plot is only here so that the colorbar can be used in the figure ...")
 cbar = CAplot.plt.colorbar()
 CAplot.plt.axis('off')
 CAplot.finish_figure( filename="3d-ED4b-ChronicImagingBehavior-Colorbar-2Dplots", wspace=0.2, hspace=0.4 )
