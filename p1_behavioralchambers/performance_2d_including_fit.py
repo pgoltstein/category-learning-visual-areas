@@ -60,17 +60,6 @@ for m in all_mice:
     data[m] = np.stack( (X[notNanIx], Y[notNanIx], performance[notNanIx]) ).T
     data_mat[m] = np.reshape(performance, (7,7))
 
-performance_test1 = np.array([ 0,0,0,0,0,0,np.NaN, 0,0,0,0,0,np.NaN,1, 0,0,0,0,np.NaN,1,1, 0,0,0,np.NaN,1,1,1, 0,0,np.NaN,1,1,1,1, 0,np.NaN,1,1,1,1,1, np.NaN,1,1,1,1,1,1  ])
-
-performance_test2 = np.array([ 0,0,0,0,0.5,1,np.NaN, 0,0,0,0,0.5,np.NaN,1, 0,0,0,0,np.NaN,1,1, 0,0,0,np.NaN,1,1,1, 0,0,np.NaN,1,1,1,1, 0,np.NaN,0.5,1,1,1,1, np.NaN,0,0.5,1,1,1,1  ])
-
-data_test = {}
-data_mat_test = {}
-notNanIx1 = ~np.isnan(performance_test1)
-notNanIx2 = ~np.isnan(performance_test2)
-data_test = {"test1": np.stack( (X[notNanIx1], Y[notNanIx1], performance_test1[notNanIx1]) ).T, "test2": np.stack( (X[notNanIx2], Y[notNanIx2], performance_test2[notNanIx2]) ).T}
-data_mat_test = {"test1": np.reshape(performance_test1, (7,7)), "test2": np.reshape(performance_test2, (7,7))}
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Display 2D of mice
