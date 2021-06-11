@@ -490,10 +490,25 @@ def kruskalwallis_across_shifts(data_per_shift, shifts, y_variable, posthoc_wmps
                 print("  {}{} vs {}{}".format(shift1, degree_sign, shift2, degree_sign), end="")
                 report_wmpsr_test( data_per_shift[:,sh1], data_per_shift[:,sh2], n_indents=4, alpha=0.05, alternative=posthoc_wmpsr_alternative, bonferroni=1 )
 
-def report_wmpsr_test( sample1, sample2, n_indents=2, alpha=0.05, alternative="two-sided", bonferroni=1 ):
+def report_wmpsr_test( sample1, sample2, n_indents=2, alpha=0.05, alternative="two-sided", bonferroni=1, preceding_text=""):
     p,Z,n = wilcoxon_matched_pairs_signed_rank_test( sample1, sample2, alternative=alternative )
-    print('{}WMPSR test, Z={:0.0f}, p={:0.4f}, n={:0.0f}{}'.format( " "*n_indents, Z, p, n, "  >> significant" if p<(alpha/bonferroni) else "." ))
-    return p
+    if alternative=="two-sided":
+        preceding_text += "two-sided "
+    else:
+        preceding_text="one-sided "
+    if bonferroni>1:
+        p_b = p*bonferroni
+        if p_b < 0.001:
+            print('{}{}WMPSR test, W={:0.0f}, p_bonf={:4E}, n={:0.0f}{}'.format( " "*n_indents, preceding_text, Z, p_b, n, "  >> sig." if p<(alpha/bonferroni) else "." ))
+        else:
+            print('{}{}WMPSR test, W={:0.0f}, p_bonf={:0.4f}, n={:0.0f}{}'.format( " "*n_indents, preceding_text, Z, p_b, n, "  >> sig." if p<(alpha/bonferroni) else "." ))
+        return p_b
+    else:
+        if p < 0.001:
+            print('{}{}WMPSR test, W={:0.0f}, p={:4E}, n={:0.0f}{}'.format( " "*n_indents, preceding_text, Z, p, n, "  >> sig." if p<(alpha/bonferroni) else "." ))
+        else:
+            print('{}{}WMPSR test, W={:0.0f}, p={:0.4f}, n={:0.0f}{}'.format( " "*n_indents, preceding_text, Z, p, n, "  >> sig." if p<(alpha/bonferroni) else "." ))
+        return p
 
 def report_mannwhitneyu_test( sample1, sample2, n_indents=2, alpha=0.05, bonferroni=1 ):
     p,U,r,n1,n2 = mann_whitney_u_test( sample1, sample2 )
@@ -502,7 +517,10 @@ def report_mannwhitneyu_test( sample1, sample2, n_indents=2, alpha=0.05, bonferr
 
 def report_kruskalwallis( samplelist, n_indents=2, alpha=0.05 ):
     p,H,DFbetween,DFwithin,n = kruskalwallis( samplelist )
-    print("{}Kruskal-Wallis test, X^2 = {:0.3f}, df = {:0.0f} p = {:0.4f}, n={:0.0f} {}".format( " "*n_indents, H, DFbetween, p, n, "  >> significant" if p<alpha else "." ))
+    if p < 0.001:
+        print("{}two-sided Kruskal-Wallis test, H({:0.0f}) = {:0.3f}, p = {:4E}, n={:0.0f}".format( " "*n_indents, DFbetween, H, p, n, "  >> sig." if p<alpha else "." ))
+    else:
+        print("{}two-sided Kruskal-Wallis test, H({:0.0f}) = {:0.3f}, p = {:0.4f}, n={:0.0f}".format( " "*n_indents, DFbetween, H, p, n, "  >> sig." if p<alpha else "." ))
 
 def wilcoxon_matched_pairs_signed_rank_test( sample1, sample2, alternative="two-sided" ):
     sample1 = sample1[~np.isnan(sample1)].ravel()
