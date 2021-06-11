@@ -213,7 +213,7 @@ for c_nr in range(n_clusters):
     CAplot.finish_panel( ax, title="Cluster {}".format(c_nr), ylabel="Fraction", xlabel="", legend="off", y_minmax=[0,0.7], y_step=[0.2,1], y_margin=0.0, y_axis_margin=0.0, x_minmax=xvalues[[0,-1]], x_step=None, x_margin=0.55, x_axis_margin=0.55, x_ticks=xvalues, x_ticklabels=xlabels, x_tick_rotation=45, despine=True, legendpos=0)
 
 # Finish figure layout and save
-CAplot.finish_figure( filename="4e-FractionResponsiveNeurons-ClustersPerArea" )
+CAplot.finish_figure( filename="4c-FractionResponsiveNeurons-ClustersPerArea" )
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -245,7 +245,7 @@ for nr,(x,y1,y2) in enumerate(zip( xvalues,loc_clust_n[:,0],loc_clust_n[:,1])):
 CAplot.finish_panel( ax, title="", ylabel="# mice", xlabel="", legend="off", y_minmax=[0,7.1], y_step=[1,0], y_margin=0.0, y_axis_margin=0.0, x_minmax=xvalues[[0,-1]], x_step=None, x_margin=0.55, x_axis_margin=0.55, x_ticks=xvalues, x_ticklabels=locations, x_tick_rotation=45, despine=True, legendpos=0)
 
 # Finish figure layout and save
-CAplot.finish_figure( filename="4c-FractionResponsive-FractionPerCluster" )
+CAplot.finish_figure( filename="4e-FractionResponsive-FractionPerCluster" )
 
 
 print("\nDifference between dorsal and ventral areas")
