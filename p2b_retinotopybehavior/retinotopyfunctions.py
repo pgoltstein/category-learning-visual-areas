@@ -71,7 +71,7 @@ def load_mouse_data(datapath, mice, shifts, include_eye=False, im_nplanes=None):
         mousedata[m] = dict(zip(shifts, [[] for _ in range(len(shifts))]))
         eyedata[m] = dict(zip(shifts, [[] for _ in range(len(shifts))]))
         for f in matfiles:
-            print(f)
+            print(f)ß
             matfile_contents = loadmat(f)
             shift = int(matfile_contents["S"]["MonitorPosition"])
             print("  - shift = {} degrees".format(shift))
@@ -407,7 +407,7 @@ def barplot_shifts( datamat, shifts, ylabel, y_minmax, y_step, savename ):
         plt.plot( datamat[m,:], color="#aaaaaa", marker="o", linewidth=1,
         markerfacecolor="#aaaaaa", markersize=2,
         markeredgewidth=None, markeredgecolor=None )
-    finish_panel( ax, ylabel=ylabel, xlabel="Monitor position", legend="off", y_minmax=y_minmax, y_step=y_step, y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,len(shifts)-1], x_ticks=list(range(len(shifts))), x_ticklabels=position_labels, x_margin=0.75, x_axis_margin=0.55, despine=True)
+    finish_panel( ax, ylabel=ylabel, xlabel="Stimulus position", legend="off", y_minmax=y_minmax, y_step=y_step, y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,len(shifts)-1], x_ticks=list(range(len(shifts))), x_ticklabels=position_labels, x_margin=0.75, x_axis_margin=0.55, despine=True)
     finish_figure( filename=os.path.join(figpath,savename), wspace=0.8, hspace=0.8 )
 
 def curveplots_shifts( datamat, shifts, savename ):
