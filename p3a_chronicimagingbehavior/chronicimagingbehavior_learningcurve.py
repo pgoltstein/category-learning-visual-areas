@@ -109,7 +109,7 @@ for ct_nr in range(n_ct):
     CAplot.line( xvalues, mean_data, sem_data, line_color='#000000', line_width=1, sem_color='#000000' )
 
 # Finish panel layout
-CAplot.finish_panel( ax, ylabel="Fraction correct", xlabel="Training session", legend="off", y_minmax=[0.0,1.000001], y_step=[0.25,1], y_margin=0.0, y_axis_margin=0.0, x_minmax=[(-1*max_n[0]),ct_offset-1], x_step=None, x_margin=0.55, x_axis_margin=0.55, x_ticks=x_ticks, x_ticklabels=x_ticklabels,  despine=True)
+CAplot.finish_panel( ax, ylabel="Fraction correct", xlabel="Training session", legend="off", y_minmax=[0.0,1.000001], y_step=[0.25,2], y_margin=0.0, y_axis_margin=0.0, x_minmax=[(-1*max_n[0]),ct_offset-1], x_step=None, x_margin=0.55, x_axis_margin=0.55, x_ticks=x_ticks, x_ticklabels=x_ticklabels,  despine=True)
 
 # Finish figure layout and save
 CAplot.finish_figure( filename="3ED4a-ChronicImagingBehavior-LearningCurve", wspace=0.8, hspace=0.8 )
