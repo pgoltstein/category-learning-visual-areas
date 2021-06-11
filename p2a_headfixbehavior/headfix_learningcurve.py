@@ -75,7 +75,7 @@ for m_nr,m in enumerate(all_mice):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Display learning curve
-fig,ax = CAplot.init_figure_axes(fig_size=(18,6))
+fig,ax = CAplot.init_figure_axes(fig_size=(18,9))
 
 # Loop CT
 ct_offset = (-1*max_n[0])+1
