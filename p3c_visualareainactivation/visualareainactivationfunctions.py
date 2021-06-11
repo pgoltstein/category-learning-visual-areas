@@ -56,7 +56,7 @@ colormap = "RdBu_r"
 inact_colors = { "aCSF": "#000000", "Muscimol": "#FF0000", "Control": "#888888" }
 
 # Functions
-def load_mouse_data(datapath, mice, areas, conditions):
+def load_mouse_data(datapath, mice, areas, conditions, conditions_names):
     print("\n ---LOADING DATA ---")
     mousedata = {}
     datedata = {}
@@ -84,14 +84,14 @@ def load_mouse_data(datapath, mice, areas, conditions):
 
     return mousedata, datedata
 
-def mean_per_area_condition( mousedata, mice, areas, conditions ):
+def mean_per_area_condition( mousedata, mice, areas, conditions, conditions_names ):
     p_per_area_cond = np.full( (len(mice),len(areas),len(conditions)), np.NaN )
     for m_nr,m in enumerate(mice):
         print("  Mouse {}".format(m))
         for a_nr,a in enumerate(areas):
             print("  - Area {}".format(a))
             for c_nr,c in enumerate(conditions):
-                print("    .{}: n={}".format(c,len(mousedata[m][a][c])))
+                print("    .{}: n={}".format(conditions_names[c_nr], len(mousedata[m][a][c])))
                 p_per_ses = []
                 for s in mousedata[m][a][c]:
                     outcomes = s["Outcome"].ravel().astype(np.float)
@@ -113,7 +113,7 @@ def calculate_curve_fits( curvemat, mice, areas, conditions):
                 curve_steepness[m_nr,a_nr,c_nr] = params[1]
     return curve_fits,curve_steepness
 
-def barplot_area_cond( datamat, areas, conditions, ylabel, y_minmax, y_step, savename ):
+def barplot_area_cond( datamat, areas, conditions, conditions_names, ylabel, y_minmax, y_step, savename ):
     fig,ax = init_figure_axes(fig_size=(14,6))
     all_data = {"Control": [], "aCSF": [], "Muscimol": []}
     all_data_red = []
@@ -126,14 +126,14 @@ def barplot_area_cond( datamat, areas, conditions, ylabel, y_minmax, y_step, sav
             mn = np.nanmean(datamat[:,a_nr,c_nr])
             sd = np.nanstd(datamat[:,a_nr,c_nr])
             all_data[c].append(datamat[:,a_nr,c_nr]-mn)
-            print('{} mean={:7.5f}, std={:7.5f}'.format( c, mn, sd ))
+            print('{} mean={:7.5f}, std={:7.5f}'.format( conditions_names[c_nr], mn, sd ))
         reduction = datamat[:,a_nr,1]-datamat[:,a_nr,2]
         mn = np.nanmean(reduction)
         sd = np.nanstd(reduction)
         all_data_red.append(reduction-mn)
         for m in range(datamat.shape[0]):
             plt.plot( datamat[m,a_nr,:], color="#aaaaaa", marker="o", linewidth=1, markerfacecolor="#aaaaaa", markersize=2, markeredgewidth=None, markeredgecolor=None )
-        finish_panel( ax, ylabel=ylabel, xlabel="Condition", legend="off", y_minmax=y_minmax, y_step=y_step, y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,len(conditions)-1], x_ticks=list(range(len(conditions))), x_ticklabels=conditions, x_margin=0.75, x_axis_margin=0.55, x_tick_rotation=-45, despine=True)
+        finish_panel( ax, ylabel=ylabel, xlabel="Condition", legend="off", y_minmax=y_minmax, y_step=y_step, y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,len(conditions)-1], x_ticks=list(range(len(conditions))), x_ticklabels=conditions_names, x_margin=0.75, x_axis_margin=0.55, x_tick_rotation=-45, despine=True)
     finish_figure( filename=os.path.join(figpath,savename), wspace=0.8, hspace=0.8 )
 
 def mean_grid_per_area_cond( mousedata, mice, areas, conditions ):
@@ -186,7 +186,7 @@ def mean_curve_per_area_cond( mousedata, mice, areas, conditions ):
                 curve_per_area_cond[m_nr,a_nr,c_nr,:] = np.nanmean( np.stack(curve_per_ses,axis=1), axis=1)
     return curve_per_area_cond
 
-def curveplots_area_cond( datamat, areas, conditions, savename ):
+def curveplots_area_cond( datamat, areas, conditions, conditions_names, savename ):
     xvalues = np.arange(12)
     xticklabels = []
     for x in range(-6,7,1):
@@ -204,7 +204,7 @@ def curveplots_area_cond( datamat, areas, conditions, savename ):
             for m_nr in range(datamat.shape[0]):
                 plt.plot( xvalues, datamat[m_nr,a_nr,c_nr,:], marker="o", markersize=1, color='#aaaaaa', linestyle='-', linewidth=1 )
             line( xvalues, mn, sem, line_color=inact_colors[c], sem_color=inact_colors[c] )
-            finish_panel( ax, title="{}".format(c), ylabel="Fraction chosen", xlabel="Boundary distance", legend="off", y_minmax=[0,1], y_step=[0.25,2], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,11], x_margin=0.55, x_axis_margin=0.55, despine=True, x_ticks=xvalues, x_ticklabels=xticklabels)
+            finish_panel( ax, title="{}".format(conditions_names[c_nr]), ylabel="Fraction chosen", xlabel="Boundary distance", legend="off", y_minmax=[0,1], y_step=[0.25,2], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,11], x_margin=0.55, x_axis_margin=0.55, despine=True, x_ticks=xvalues, x_ticklabels=xticklabels)
 
         ax = plt.subplot2grid( (len(areas),len(conditions)+2), (a_nr,3) )
         for c_nr,c in enumerate(conditions):
@@ -219,7 +219,7 @@ def curveplots_area_cond( datamat, areas, conditions, savename ):
         finish_panel( ax, title="{}".format(a), ylabel="Fraction chosen", xlabel="Boundary distance", legend="off", y_minmax=[0,1], y_step=[0.25,2], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0,11], x_margin=0.55, x_axis_margin=0.55, despine=True, x_ticks=xvalues, x_ticklabels=xticklabels)
     finish_figure( filename=os.path.join(figpath,savename), wspace=0.8, hspace=1.0 )
 
-def plot_grids_mouse_area_cond(gridmat, mice, areas, conditions):
+def plot_grids_mouse_area_cond(gridmat, mice, areas, conditions, conditions_names):
     fig,ax = init_figure_axes( fig_size=(3.5*len(areas)*len(conditions),3.5*len(mice)) )
     for m_nr,m in enumerate(mice):
         for a_nr,a in enumerate(areas):
@@ -237,10 +237,10 @@ def plot_grids_mouse_area_cond(gridmat, mice, areas, conditions):
                 ax.set_xlim(-0.5,6.5)
                 ax.set_ylim(-0.5,5.5)
                 plt.axis('off')
-                plt.title("{}-{}".format(a,c[:4]), fontsize=font_size['title'])
+                plt.title("{}-{}".format(a,conditions_names[c_nr][:4]), fontsize=font_size['title'])
     finish_figure( filename=os.path.join(figpath,"3ED5d-gridspermouse"), wspace=0.4, hspace=0.4 )
 
-def plot_grids_area_cond(gridmat, mice, areas, conditions):
+def plot_grids_area_cond(gridmat, mice, areas, conditions, conditions_names):
     fig,ax = init_figure_axes(fig_size=(3.5*len(conditions),3.5*len(areas)))
     for a_nr,a in enumerate(areas):
         for c_nr,c in enumerate(conditions):
@@ -259,7 +259,7 @@ def plot_grids_area_cond(gridmat, mice, areas, conditions):
             ax.set_xlim(-0.5,6.5)
             ax.set_ylim(-0.5,5.5)
             plt.axis('off')
-            plt.title("{}-{}".format(a,c[:4]), fontsize=font_size['title'])
+            plt.title("{}-{}".format(a,conditions_names[c_nr][:4]), fontsize=font_size['title'])
     finish_figure( filename=os.path.join(figpath,"3ED5d-grids"), wspace=0.25, hspace=0.0 )
 
 def suck_on_that_0point0( start, stop, step=1, format_depth=1, labels_every=None ):
