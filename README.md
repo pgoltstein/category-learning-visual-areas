@@ -256,7 +256,7 @@ Data path: “./data/p6b_mouthtracking”
 Code path: “./code/p6b_mouthtracking”
 
 Extended Data Figure 10
-* ED10g,h,j,k: ``` python tracking-of-mouth-movement.py ```
+* ED10g,h,j,k: ``` python tracking-of-mouth-movements.py ```
 
 ---
 
