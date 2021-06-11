@@ -88,6 +88,14 @@ for m,py,px in zip( all_mice, panel_ids[0], panel_ids[1] ):
 CAplot.finish_figure( filename="1e-BehavioralChambers-Colorbar-2Dplots-incl-fittedboundary", wspace=0.0, hspace=0.4 )
 
 
+fig = CAplot.init_figure(fig_size=(16,8))
+CAplot.plt.imshow(np.full((1,1),0.0), cmap=colormap, vmin=0.0, vmax=1.0)
+CAplot.plt.title("This plot is only here\nso that the colorbar can be used in the figure ...")
+cbar = CAplot.plt.colorbar()
+CAplot.plt.axis('off')
+CAplot.finish_figure( filename="1e-BehavioralChambers-Colorbar-2Dplots", wspace=0.0, hspace=0.4 )
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Show
 CAplot.plt.show()

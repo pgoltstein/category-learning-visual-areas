@@ -83,26 +83,6 @@ for m in all_mice:
     performance_level[m] = np.divide(performance_level[m], n_trials_level[m])
     reaction_time_level[m] = np.divide(reaction_time_level[m], n_trials_level[m])
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Display colored performance plots per mouse
-fig = CAplot.init_figure(fig_size=(16,8))
-panel_ids,n = CAplot.grid_indices( 8, n_columns=4 )
-for m,py,px in zip( all_mice, panel_ids[0], panel_ids[1] ):
-    ax = CAplot.plt.subplot2grid( n, (py,px) )
-
-    mouse_plot = np.reshape(performance[m][:], (7,7))
-    CAplot.plt.imshow(mouse_plot, cmap=colormap, vmin=0.0, vmax=1.0)
-    CAplot.plt.title(m)
-    CAplot.plt.axis('off')
-
-CAplot.finish_figure( filename="1e-BehavioralChambers-Performance-2Dplots", wspace=0.0, hspace=0.4 )
-
-fig = CAplot.init_figure(fig_size=(16,8))
-CAplot.plt.imshow(np.full((1,1),0.0), cmap=colormap, vmin=0.0, vmax=1.0)
-CAplot.plt.title("This plot is only here so that the colorbar can be used in the figure ...")
-cbar = CAplot.plt.colorbar()
-CAplot.plt.axis('off')
-CAplot.finish_figure( filename="1e-BehavioralChambers-Colorbar-2Dplots", wspace=0.0, hspace=0.4 )
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Mean performance and reaction time across mice
