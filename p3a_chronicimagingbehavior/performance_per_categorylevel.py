@@ -147,10 +147,10 @@ for m,py,px in zip( all_mice, panel_ids[0], panel_ids[1] ):
     ax = CAplot.plt.subplot2grid( n, (py,px) )
 
     b_a, (x_line,y_line) = matdata.calculate_boundary( category_id[m], normalize=True, mat_size=(5,6) )
-    ax.plot(x_line, y_line, color="#000000", linestyle="-")
+    ax.plot(x_line, y_line, color="#000000", linestyle="--")
 
     b_a, (x_line,y_line) = matdata.calculate_boundary( performance[m], normalize=True, mat_size=(5,6) )
-    ax.plot(x_line, y_line, color="#000000", linestyle="--")
+    ax.plot(x_line, y_line, color="#000000", linestyle="-")
 
     CAplot.plt.imshow(performance[m], cmap=colormap, vmin=0.0, vmax=1.0)
     CAplot.plt.title(m)
