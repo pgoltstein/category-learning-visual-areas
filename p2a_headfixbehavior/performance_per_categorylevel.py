@@ -128,7 +128,8 @@ panel_ids,n = CAplot.grid_indices( n_mice, n_columns=4 )
 for m,py,px in zip( all_mice, panel_ids[0], panel_ids[1] ):
     ax = CAplot.plt.subplot2grid( n, (py,px) )
 
-    CAplot.plt.imshow(performance[m], cmap=colormap, vmin=0.0, vmax=1.0)
+    # invert to make left/right the correct colors
+    CAplot.plt.imshow(np.abs(performance[m]-1), cmap=colormap, vmin=0.0, vmax=1.0)
     CAplot.plt.title(m)
     CAplot.plt.axis('off')
 
