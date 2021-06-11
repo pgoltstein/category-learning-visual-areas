@@ -288,8 +288,7 @@ for r_nr in range(n_regr):
     print("\n  Regressor {}:".format(regr_names[r_nr]))
     print("    - Mean weight dorsal = {} ({}) n={}".format(*CAgeneral.mean_sem(x)))
     print("    - Mean weight ventral = {} ({}) n={}".format(*CAgeneral.mean_sem(y)))
-    print("    - Mann-whitney U={}, p={} ".format(U,p))
-    print("    - Mann-whitney U={}, p_bonf(4x)={} ".format(U,p*4))
+    CAstats.report_mannwhitneyu_test( x, y, n_indents=4, alpha=0.05, bonferroni=4)
 
     X = np.zeros((x.shape[0],2))
     Y = np.zeros((y.shape[0],2))+1
