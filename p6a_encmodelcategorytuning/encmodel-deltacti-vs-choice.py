@@ -426,50 +426,46 @@ decr_col = (0,0,0.7,1)
 d_off = 0
 i_off = 0
 mk = 5
-# Loop areas
-areas.remove("P")
-for a_nr,area in enumerate(areas):
-    # if area != "POR":
-    #     continue
 
-    # Calculate delta CTI, add to 'all' list
-    deltacti_bs = csi_cat_ST[area][:,0]-csi_stim_ST[area][:,0]
-    deltacti_lrn = csi_cat_ST[area][:,1]-csi_stim_ST[area][:,1]
-    choice_sel = w_choice_prot_ST[area][:,1]
+area = "POR"
 
-    # Array with all reduced and increased csi neurons
-    ix = np.logical_or( deltacti_lrn >= deltacti_bs, np.isnan(deltacti_bs) )
-    choice_decr = np.array(choice_sel)
-    choice_decr[ix] = np.NaN # lrn > bs = NaN
-    ix = np.logical_or( deltacti_lrn < deltacti_bs, np.isnan(deltacti_lrn) )
-    choice_incr = np.array(choice_sel)
-    choice_incr[ix] = np.NaN  # bs > lrn = NaN
+# Calculate delta CTI, add to 'all' list
+deltacti_bs = csi_cat_ST[area][:,0]-csi_stim_ST[area][:,0]
+deltacti_lrn = csi_cat_ST[area][:,1]-csi_stim_ST[area][:,1]
+choice_sel = w_choice_prot_ST[area][:,1]
 
-    # Test full data matrix (decreased versus increased)
-    choice_incr_decr = np.stack([choice_decr,choice_incr], axis=1)
-    b0, a0 = test_before_after( choice_incr_decr, area+", stable cells (decr-dcti vs incr-dcti)", min_n_samples=min_n_samples, paired=False, bonferroni=1, name1="decr", name2="incr" )
+# Array with all reduced and increased csi neurons
+ix = np.logical_or( deltacti_lrn >= deltacti_bs, np.isnan(deltacti_bs) )
+choice_decr = np.array(choice_sel)
+choice_decr[ix] = np.NaN # lrn > bs = NaN
+ix = np.logical_or( deltacti_lrn < deltacti_bs, np.isnan(deltacti_lrn) )
+choice_incr = np.array(choice_sel)
+choice_incr[ix] = np.NaN  # bs > lrn = NaN
 
-    # Create pandas dataframe with two conditions (decr & incr)
-    D = np.stack([ np.concatenate([choice_decr,choice_incr],axis=0), np.concatenate( [np.zeros_like(choice_decr), np.zeros_like(choice_incr)+1], axis=0 ) ], axis=1)
-    df = pd.DataFrame(D, columns=["data","group"])
+# Test full data matrix (decreased versus increased)
+choice_incr_decr = np.stack([choice_decr,choice_incr], axis=1)
+b0, a0 = test_before_after( choice_incr_decr, area+", stable cells (decr-dcti vs incr-dcti)", min_n_samples=min_n_samples, paired=False, bonferroni=1, name1="decr", name2="incr" )
 
-    # Plot basic figure containing distribution or single neuron data
-    fig,ax = CAplot.init_figure_axes(fig_size=(4,4))
-    # CAplot.sns.violinplot(data=df, x="group", y="data", ax=ax, inner=None, dodge=True, palette=[ (.9,.9,.9,1), (.9,.9,.9,1)])
-    CAplot.sns.swarmplot(data=df, x="group", y="data", ax=ax, size=3, linewidth=1, edgecolor="None", dodge=True, palette=[ (.5,.5,.5,1), (.5,.5,.5,1)])
+# Create pandas dataframe with two conditions (decr & incr)
+D = np.stack([ np.concatenate([choice_decr,choice_incr],axis=0), np.concatenate( [np.zeros_like(choice_decr), np.zeros_like(choice_incr)+1], axis=0 ) ], axis=1)
+df = pd.DataFrame(D, columns=["data","group"])
 
-    # Draw mean markers
-    if b0 is not None:
-        CAplot.plt.plot( [0+d_off,0+d_off], [b0.mean-b0.stderr, b0.mean+b0.stderr], linewidth=1, marker=None, color=decr_col, zorder=1000)
-        CAplot.plt.plot( 0+d_off, b0.mean, color=decr_col, markerfacecolor=decr_col, marker="o", markeredgewidth=0, markeredgecolor=decr_col, markersize=mk, zorder=1001)
-    if b0 is not None:
-        CAplot.plt.plot( [1+i_off,1+i_off], [a0.mean-a0.stderr, a0.mean+a0.stderr], linewidth=1, marker=None, color=incr_col, zorder=1002)
-        CAplot.plt.plot( 1+i_off, a0.mean, color=incr_col, markerfacecolor=incr_col, marker="o", markeredgewidth=0, markeredgecolor=incr_col, markersize=mk, zorder=1003)
+# Plot basic figure containing distribution or single neuron data
+fig,ax = CAplot.init_figure_axes(fig_size=(4,4))
+CAplot.sns.swarmplot(data=df, x="group", y="data", ax=ax, size=3, linewidth=1, edgecolor="None", dodge=True, palette=[ (.5,.5,.5,1), (.5,.5,.5,1)])
 
-    # Finish up
-    # ax.get_legend().set_visible(False)
-    CAplot.finish_panel( ax=ax, title=None, ylabel="Choice selectivity (2 stim)", xlabel="Template", legend="off", y_minmax=[0,1], y_step=[0.2,1], y_margin=0.02, y_axis_margin=0.01, x_minmax=[0,1], x_step=None, x_margin=0.75, x_axis_margin=0.55, x_ticks=np.arange(2), x_ticklabels=["Decr","Incr"], x_tick_rotation=0, tick_size=None, label_size=None, title_size=None, legend_size=None, despine=True, legendpos=0)
-    CAplot.finish_figure( filename="6i-DeltaCTI-Vs-Choice-DecreasedIncreased-Area-{}".format(area), path=figpath, wspace=0.8, hspace=0.8 )
+# Draw mean markers
+if b0 is not None:
+    CAplot.plt.plot( [0+d_off,0+d_off], [b0.mean-b0.stderr, b0.mean+b0.stderr], linewidth=1, marker=None, color=decr_col, zorder=1000)
+    CAplot.plt.plot( 0+d_off, b0.mean, color=decr_col, markerfacecolor=decr_col, marker="o", markeredgewidth=0, markeredgecolor=decr_col, markersize=mk, zorder=1001)
+if b0 is not None:
+    CAplot.plt.plot( [1+i_off,1+i_off], [a0.mean-a0.stderr, a0.mean+a0.stderr], linewidth=1, marker=None, color=incr_col, zorder=1002)
+    CAplot.plt.plot( 1+i_off, a0.mean, color=incr_col, markerfacecolor=incr_col, marker="o", markeredgewidth=0, markeredgecolor=incr_col, markersize=mk, zorder=1003)
+
+# Finish up
+# ax.get_legend().set_visible(False)
+CAplot.finish_panel( ax=ax, title=None, ylabel="Choice selectivity (2 stim)", xlabel="Template", legend="off", y_minmax=[0,1], y_step=[0.2,1], y_margin=0.02, y_axis_margin=0.01, x_minmax=[0,1], x_step=None, x_margin=0.75, x_axis_margin=0.55, x_ticks=np.arange(2), x_ticklabels=["Decr","Incr"], x_tick_rotation=0, tick_size=None, label_size=None, title_size=None, legend_size=None, despine=True, legendpos=0)
+CAplot.finish_figure( filename="6i-DeltaCTI-Vs-Choice-DecreasedIncreased-Area-{}".format(area), path=figpath, wspace=0.8, hspace=0.8 )
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
