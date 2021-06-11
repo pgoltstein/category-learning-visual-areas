@@ -174,9 +174,11 @@ for l_nr,loc in enumerate(locations):
         loc_clust_n[l_nr,c_nr] = np.sum( y_km[area_all[:,0]==l_nr] == c_nr )
     print("Area {:3s} = {}".format(loc,clust) )
 
-# # Make 'learning' cluster be the second cluster (cluster # 2)
-# if np.nanmean(data_all[y_km==0,4]-data_all[y_km==0,2]) > np.nanmean(data_all[y_km==1,4]-data_all[y_km==1,2]):
-#     y_km = np.abs(y_km-1)
+
+# Make 'learning' cluster be the second cluster (cluster # 2)
+if np.nanmean(data_all[y_km==0,4]-data_all[y_km==0,2]) > np.nanmean(data_all[y_km==1,4]-data_all[y_km==1,2]):
+    y_km = np.abs(y_km-1)
+
 
 fig = CAplot.init_figure(fig_size=(12,6))
 ax = CAplot.plt.subplot2grid( (1,2), (0,0) )
