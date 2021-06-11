@@ -192,7 +192,7 @@ CAplot.finish_panel( ax, title="", ylabel="", xlabel="", legend="off", y_minmax=
 
 CAplot.finish_figure( filename="4g-FractionResponsiveNeurons-RegressionExample" )
 
-fig = CAplot.init_figure(fig_size=(17.6,5))
+fig = CAplot.init_figure(fig_size=(17.6,4.5))
 for r_nr in range(n_regr):
     ax = CAplot.plt.subplot2grid( (1,n_regr), (0,r_nr) )
 
