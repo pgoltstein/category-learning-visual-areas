@@ -71,7 +71,7 @@ def load_mouse_data(datapath, mice, shifts, include_eye=False, im_nplanes=None):
         mousedata[m] = dict(zip(shifts, [[] for _ in range(len(shifts))]))
         eyedata[m] = dict(zip(shifts, [[] for _ in range(len(shifts))]))
         for f in matfiles:
-            print(f)ß
+            print(f)
             matfile_contents = loadmat(f)
             shift = int(matfile_contents["S"]["MonitorPosition"])
             print("  - shift = {} degrees".format(shift))
