@@ -192,8 +192,8 @@ Extended Data Figure 6
 ### Part 5: Encodingmodel analysis
 
 Data path: “./data/chronicrecordings”  
-Processed data path: “./data/p5_ encodingmodel”  
-Code path: “./code/p5_ encodingmodel”  
+Processed data path: “./data/p5_encodingmodel”  
+Code path: “./code/p5_encodingmodel”  
 
 Data pre-processing:
 * ``` python run-encodingmodel-within.py [areaname] [mousename] comb -o R2m -r trials -l Category -c Trained ```  
@@ -227,8 +227,8 @@ Extended Data Figure 7
 ### Part 6a: Encodingmodel category tuning
 
 Data path: “./data/chronicrecordings”  
-Processed data path: “./data/p5_ encodingmodel”  
-Code path: “./code/p6a_ encmodelcategorytuning”  
+Processed data path: “./data/p5_encodingmodel”  
+Code path: “./code/p6a_encmodelcategorytuning”  
 
 Data pre-processing: see part 5
 
