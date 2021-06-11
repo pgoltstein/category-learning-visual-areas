@@ -162,7 +162,7 @@ for m_nr in range(n_mice):
     CAplot.plt.plot( xvalues, m_perf_mat[:,m_nr], marker="o", markersize=1,
         color='#aaaaaa', linestyle='-', linewidth=1 )
 CAplot.line( xvalues, mn, sem )
-CAplot.finish_panel( ax, ylabel="Fraction chosen", xlabel="Boundary distance", legend="off", y_minmax=[0.0,1.000001], y_step=[0.25,2], y_margin=0.0, y_axis_margin=0.0, x_minmax=[-5.0,6.0], x_margin=0.95, x_axis_margin=0.55, despine=True, x_ticks=xvalues, x_ticklabels=xticklabels)
+CAplot.finish_panel( ax, ylabel="Left choice (p)", xlabel="Boundary distance", legend="off", y_minmax=[0.0,1.000001], y_step=[0.25,2], y_margin=0.0, y_axis_margin=0.0, x_minmax=[-5.0,6.0], x_margin=0.95, x_axis_margin=0.55, despine=True, x_ticks=xvalues, x_ticklabels=xticklabels)
 
 ax = CAplot.plt.subplot2grid( (1,2), (0,1) )
 mn,sem,n = CAgeneral.mean_sem( m_rt_mat, axis=1 )
