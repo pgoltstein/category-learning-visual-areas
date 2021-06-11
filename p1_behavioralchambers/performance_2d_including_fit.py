@@ -85,7 +85,7 @@ for m,py,px in zip( all_mice, panel_ids[0], panel_ids[1] ):
     CAplot.plt.title(m, fontsize=10)
     CAplot.plt.axis('off')
 
-CAplot.finish_figure( filename="1e-BehavioralChambers-Colorbar-2Dplots-incl-fittedboundary", wspace=0.0, hspace=0.4 )
+CAplot.finish_figure( filename="1e-BehavioralChambers-Performance-2Dplots-incl-fittedboundary", wspace=0.0, hspace=0.4 )
 
 
 fig = CAplot.init_figure(fig_size=(16,8))
