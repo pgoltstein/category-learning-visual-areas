@@ -219,7 +219,7 @@ mat = np.stack([x,y],axis=1)
 df = pd.DataFrame(mat, columns=["dSparseness","Area"])
 CAplot.sns.swarmplot(data=df, ax=ax, y="dSparseness", x="Area", color="#888888", size=1, linewidth=0.5, edgecolor="None")
 CAplot.finish_panel( ax, title="", ylabel="dSparseness", xlabel="Area", legend="off", y_minmax=[-0.4,0.4], y_step=[0.2,1], y_margin=0.11, y_axis_margin=0.1, x_minmax=[0,7], x_step=None, x_margin=0.75, x_axis_margin=0.55,x_ticks=np.arange(8), x_ticklabels=areas, despine=True)
-CAplot.finish_figure( filename="6ED10d-Tuningparameters-ChangeBsLrn-Sparseness", path=figpath, wspace=0.5, hspace=0.5 )
+CAplot.finish_figure( filename="6ED10e-Tuningparameters-ChangeBsLrn-Sparseness", path=figpath, wspace=0.5, hspace=0.5 )
 
 
 fig,ax = CAplot.init_figure_axes(fig_size=(6,4))
@@ -239,7 +239,7 @@ mat = np.stack([x,y],axis=1)
 df = pd.DataFrame(mat, columns=["dCircVar","Area"])
 CAplot.sns.swarmplot(data=df, ax=ax, y="dCircVar", x="Area", color="#888888", size=1, linewidth=0.5, edgecolor="None")
 CAplot.finish_panel( ax, title="", ylabel="dCircVar", xlabel="Area", legend="off", y_minmax=[-0.4,0.4], y_step=[0.2,1], y_margin=0.02, y_axis_margin=0.01, x_minmax=[0,7], x_step=None, x_margin=0.75, x_axis_margin=0.55,x_ticks=np.arange(8), x_ticklabels=areas, despine=True)
-CAplot.finish_figure( filename="6ED10e-Tuningparameters-ChangeBsLrn-CircVar", path=figpath, wspace=0.5, hspace=0.5 )
+CAplot.finish_figure( filename="6ED10d-Tuningparameters-ChangeBsLrn-CircVar", path=figpath, wspace=0.5, hspace=0.5 )
 
 
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
