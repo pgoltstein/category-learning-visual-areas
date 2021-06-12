@@ -182,7 +182,7 @@ Calculates subsampled fraction of responsive neurons for each visual area.
 Figure 3
 * 4a-f: ``` python fractionresponsiveneurons-clustering.py ```
 * 4g-i: ``` python fractionresponsiveneurons-linearmodel.py ```  
-Note that on one (Windows) computer we systematically get a slight different results for the Task regressor Mann-Whitney U test: giving the value U=78 and p_bonf=1.1494 instead of U=79, p_bonf=1.2168.
+Note that on one (Windows) computer we systematically get a slightly different result for the Task regressor Mann-Whitney U test: giving the value U=78 and p_bonf=1.1494 instead of U=79, p_bonf=1.2168.
 
 Extended Data Figure 6
 * ED6a: ``` python fractionresponsiveneurons-clustering.py ```
