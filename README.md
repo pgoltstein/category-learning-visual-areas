@@ -219,7 +219,8 @@ Figure 5
 Extended Data Figure 7
 * ED7a: ``` python encodingmodel-full-regularization.py ```
 * ED7b,c: ``` python encodingmodel-full-R2-fraction.py ```
-* ED7d: ``` python encodingmodel-full-vs-responsivefraction.py ```
+* ED7d: ``` python encodingmodel-full-vs-responsivefraction.py ```  
+Note that on one (Windows) computer we systematically get a slightly different result for the Pearson correlation: giving the value r=0.7583 and p=9.0*10^-16 instead of r=0.7572, p=1.048915*10^-15.
 * ED7e,f: ``` python encodingmodel-full-area-dorsal-ventral.py ```
 * ED7g: ``` python encodingmodel-delta-component-area.py ```
 
