@@ -76,7 +76,7 @@ mn,sem,n = CAgeneral.mean_sem( pf, axis=0 )
 for x,y,e in zip(xvalues, mn, sem):
     CAplot.bar( x, y, e )
 
-CAplot.finish_panel( ax, ylabel="Fraction correct", legend="off", y_minmax=[0.0,1.000001], y_step=[0.2,1], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,1.0], x_step=[1.0,0], x_margin=0.75, x_axis_margin=0.55, despine=True, x_ticks=[0,1], x_ticklabels={"Buffer","Muscimol"}, x_tick_rotation=45 )
+CAplot.finish_panel( ax, ylabel="Fraction correct", legend="off", y_minmax=[0.0,1.000001], y_step=[0.2,1], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,1.0], x_step=[1.0,0], x_margin=0.75, x_axis_margin=0.55, despine=True, x_ticks=[0,1], x_ticklabels=["aCSF","Muscimol"], x_tick_rotation=45 )
 
 
 ax = CAplot.plt.subplot2grid( (1,3), (0,1) )
@@ -87,7 +87,7 @@ mn,sem,n = CAgeneral.mean_sem( nt, axis=0 )
 for x,y,e in zip(xvalues, mn, sem):
     CAplot.bar( x, y, e )
 
-CAplot.finish_panel( ax, ylabel="# of trials", legend="off", y_minmax=[0.0,200.000001], y_step=[40.0,0], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,1.0], x_step=[1.0,0], x_margin=0.75, x_axis_margin=0.55, despine=True, x_ticks=[0,1], x_ticklabels={"Buffer","Muscimol"}, x_tick_rotation=45 )
+CAplot.finish_panel( ax, ylabel="# of trials", legend="off", y_minmax=[0.0,200.000001], y_step=[40.0,0], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,1.0], x_step=[1.0,0], x_margin=0.75, x_axis_margin=0.55, despine=True, x_ticks=[0,1], x_ticklabels=["aCSF","Muscimol"], x_tick_rotation=45 )
 
 
 ax = CAplot.plt.subplot2grid( (1,3), (0,2) )
@@ -98,7 +98,7 @@ mn,sem,n = CAgeneral.mean_sem( rt, axis=0 )
 for x,y,e in zip(xvalues, mn, sem):
     CAplot.bar( x, y, e )
 
-CAplot.finish_panel( ax, ylabel="Response time (s)", legend="off", y_minmax=[0.0,4.000001], y_step=[1.0,0], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,1.0], x_step=[1.0,0], x_margin=0.75, x_axis_margin=0.55, despine=True, x_ticks=[0,1], x_ticklabels={"Buffer","Muscimol"}, x_tick_rotation=45 )
+CAplot.finish_panel( ax, ylabel="Response time (s)", legend="off", y_minmax=[0.0,4.000001], y_step=[1.0,0], y_margin=0.0, y_axis_margin=0.0, x_minmax=[0.0,1.0], x_step=[1.0,0], x_margin=0.75, x_axis_margin=0.55, despine=True, x_ticks=[0,1], x_ticklabels=["aCSF","Muscimol"], x_tick_rotation=45 )
 
 # Finish figure layout and save
 CAplot.finish_figure( filename="3f-ED4cd-ChronicImagingBehavior-CorticalInactivation", wspace=0.8, hspace=0.8 )
