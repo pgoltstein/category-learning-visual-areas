@@ -37,6 +37,7 @@ xlabels = ['Bs-tc', 'Bs-tc', 'Bs-tsk', 'Bs-tsk', 'Lrn-tsk', 'Lrn-tc']
 n_locs = len(locations)
 n_timepoints = len(xlabels)
 data_dir = "../../data/p4_fractionresponsiveneurons"
+shuffle_regr = None # number 0, 1, 2, 3 or None (0=base which should not make a difference, thus result in a delta of 0.0)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,8 +83,6 @@ for l_nr,loc in enumerate(locations):
     rr += 1
     X5[:,rr] = np.array([0,0,0,1,1])
     X6[:,rr] = np.array([0,0,0,0,1,1])
-
-    shuffle_regr = None
 
     weights = np.full((n_recs,n_regr),np.NaN)
     R2s = np.full((n_recs,),np.NaN)
@@ -260,9 +259,10 @@ CAplot.finish_figure( filename="Methods-FractionResponsiveNeurons-LinearModel-R2
 
 
 m,e,n = CAstats.mean_sem(data_R2.ravel())
+standarddev = np.nanstd(data_R2.ravel())
 
 if shuffle_regr is None:
-    print("Mean R2 full model across all is {} ± {} SEM, n={}".format(m,e,n ))
+    print("Mean R2 full model across all is {} ± {} SD, n={}".format(m,standarddev,n ))
 else:
     print("Mean dR2 {} across all is {} ± {} SEM, n={}".format( regr_names[shuffle_regr], m, e, n ))
 
